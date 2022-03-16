@@ -11,6 +11,7 @@ import {
   typescriptFunctions,
 } from './templates/typescript';
 import { commonImports, envSpecificImports } from './templates/typescript/indexImports';
+import { replaceCustomScalarsWithTypescriptEquivalent } from '@/TreeToTS/wsParsingUtilities/scalarSubstitutions';
 
 export interface OperationName {
   name: string;
@@ -127,7 +128,7 @@ export class TreeToTS {
     return {
       indexImports: commonImports(esModule).concat(envSpecificImports(env)),
       const: TreeToTS.resolveBasisCode(tree),
-      index: TreeToTS.resolveBasisTypes(tree)
+      index: replaceCustomScalarsWithTypescriptEquivalent(TreeToTS.resolveBasisTypes(tree))
         .concat(graphqlErrorTypeScript.concat('\n').concat(constantTypesTypescript).concat('\n\n'))
         .concat(typescriptFunctions(env))
         .concat(operations)
