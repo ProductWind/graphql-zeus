@@ -22,10 +22,18 @@ const STRING_EQUIVALENT_SCALARS = [
 
 const NUMBER_EQUIVALENT_SCALARS = ['AWSTimestamp'];
 
-const awsScalarReplacements = (modelType: ModelType) => [
-  ...STRING_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('string')(modelType, s)),
-  ...NUMBER_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('number')(modelType, s)),
-];
+const awsScalarReplacements = (modelType: ModelType) => {
+  if (modelType === ModelType.VALUE_TYPES) {
+    return [
+      ...STRING_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('boolean')(modelType, s)),
+      ...NUMBER_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('boolean')(modelType, s)),
+    ];
+  }
+  return [
+    ...STRING_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('string')(modelType, s)),
+    ...NUMBER_EQUIVALENT_SCALARS.map((s) => replaceScalarsWithType('number')(modelType, s)),
+  ];
+};
 
 export const replaceCustomScalarsWithTypescriptEquivalent = (zeusClientSourceCode: string): string => {
   const allReplacements = [
