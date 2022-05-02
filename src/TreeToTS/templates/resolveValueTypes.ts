@@ -6,7 +6,11 @@ export const VALUETYPES = 'ValueTypes';
 
 const resolveValueType = (t: string): string => `${VALUETYPES}["${t}"]`;
 
-type GqlTypes = 'Int' | 'Float' | 'Boolean' | 'ID' | 'String';
+type GqlTypes = 'Int' | 'Float' | 'Boolean' | 'ID' | 'String'
+  // AWS Custom scalars:
+  | 'AWSJSON' | 'AWSDateTime' | 'AWSDate' | 'AWSTime' | 'AWSEmail'
+  | 'AWSPhone' | 'AWSURL' | 'AWSIpAddress' | 'AWSTimestamp';
+
 type TSTypes = 'number' | 'boolean' | 'string';
 
 const typeScriptMap: Record<GqlTypes, TSTypes> = {
@@ -15,6 +19,17 @@ const typeScriptMap: Record<GqlTypes, TSTypes> = {
   Boolean: 'boolean',
   ID: 'string',
   String: 'string',
+
+  // AWS Custom scalars
+  AWSJSON: 'string',
+  AWSDateTime: 'string',
+  AWSDate: 'string',
+  AWSTime: 'string',
+  AWSEmail: 'string',
+  AWSPhone: 'string',
+  AWSURL: 'string',
+  AWSIpAddress: 'string',
+  AWSTimestamp: 'number',
 };
 const toTypeScriptPrimitive = (a: GqlTypes): string => typeScriptMap[a] || a;
 
