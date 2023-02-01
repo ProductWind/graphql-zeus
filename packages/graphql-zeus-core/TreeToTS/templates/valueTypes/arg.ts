@@ -4,7 +4,7 @@ import { truthyType } from '@/TreeToTS/templates/truthy';
 import { VALUETYPES } from '@/TreeToTS/templates/valueTypes/models';
 import { ParserField, Options, getTypeName, FieldType } from 'graphql-js-tree';
 
-const orVar = (name: string) => `${name} | Variable<any, string>`;
+const orVar = (name: string) => `${name}`;
 
 export const resolveArg = (f: ParserField): string => {
   const {
