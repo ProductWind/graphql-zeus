@@ -719,6 +719,16 @@ type BuiltInVariableTypes = {
   ['Float']: number;
   ['ID']: unknown;
   ['Boolean']: boolean;
+
+  ['AWSJSON']: string;
+  ['AWSDateTime']: string;
+  ['AWSDate']: string;
+  ['AWSTime']: string;
+  ['AWSEmail']: string;
+  ['AWSPhone']: string;
+  ['AWSURL']: string;
+  ['AWSIpAddress']: string;
+  ['AWSTimestamp']: number;
 };
 type AllVariableTypes = keyof BuiltInVariableTypes | keyof ZEUS_VARIABLES;
 type VariableRequired<T extends string> = \`\${T}!\` | T | \`[\${T}]\` | \`[\${T}]!\` | \`[\${T}!]\` | \`[\${T}!]!\`;
