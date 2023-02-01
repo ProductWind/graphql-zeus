@@ -51,7 +51,7 @@ describe('It creates correct TypeScript const enums', () => {
         },
       }),
     );
-    expect(enumString).toEqual(`export const enum Status {
+    expect(enumString).toEqual(`export enum Status {
 \tCREATED = "CREATED",
 \tDELETED = "DELETED"
 }`);
