@@ -1,6 +1,6 @@
 {
   "name": "@productwindtom/ws-graphql-zeus",
-  "version": "5.2.6",
+  "version": "5.2.11",
   "private": false,
   "license": "MIT",
   "description": "Generate Client Library for GraphQL Schema",
@@ -12,6 +12,9 @@
   },
   "bugs": {
     "url": "https://github.com/graphql-editor/graphql-zeus.git"
+  },
+  "bin": {
+    "zeus": "packages/graphql-zeus/lib/index.js"
   },
   "scripts": {
     "build": "npm run build -ws --if-present",

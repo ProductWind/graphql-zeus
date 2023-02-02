@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { TranslateGraphQL, Environment } from 'graphql-zeus-core';
-import { TreeToJSONSchema } from 'graphql-zeus-jsonschema';
+import { TranslateGraphQL, Environment } from '@productwindtom/graphql-zeus-core';
+import { TreeToJSONSchema } from '@productwindtom/graphql-zeus-jsonschema';
 import { Parser } from 'graphql-js-tree';
 import { pluginApollo } from '@/plugins/apollo';
 import { pluginReactQuery } from '@/plugins/react-query';
