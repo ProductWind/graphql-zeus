@@ -109,7 +109,7 @@ export class TreeToTS {
         env === 'node'
           ? `
 import fetch, { Response } from 'node-fetch';
-import WebSocket from 'ws';`
+import { WebSocket } from 'ws';`
           : ``,
       ),
       const: TreeToTS.resolveBasisCode(tree),

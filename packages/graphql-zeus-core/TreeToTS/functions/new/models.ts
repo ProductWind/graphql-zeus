@@ -76,7 +76,7 @@ export class GraphQLError extends Error {
     super('');
     console.error(response);
   }
-  toString() {
+  override toString() {
     return 'GraphQL Response Error';
   }
 }

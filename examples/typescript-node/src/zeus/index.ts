@@ -2,7 +2,7 @@
 
 import { AllTypesProps, ReturnTypes, Ops } from './const';
 import fetch, { Response } from 'node-fetch';
-import WebSocket from 'ws';
+import {WebSocket} from 'ws';
 export const HOST = "https://faker.graphqleditor.com/a-team/olympus/graphql"
 
 
@@ -400,7 +400,7 @@ export class GraphQLError extends Error {
     super('');
     console.error(response);
   }
-  toString() {
+  override toString() {
     return 'GraphQL Response Error';
   }
 }
